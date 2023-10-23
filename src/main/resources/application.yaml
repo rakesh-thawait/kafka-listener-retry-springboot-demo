@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: kafka-listener-retry-springboot-demo
+
+  kafka:
+    bootstrap-servers: localhost:9094
+    consumer:
+      group-id: ${spring.application.name}
+      enable-auto-commit: false
+    listener:
+      ack-mode: manual_immediate
+
+test-event-topic-name: test-event
+kafka-retry-attempts: 4
+kafka-retry-delay: 5000
+kafka-retry-multiplier: 2.0
+kafka-retry-max-delay: 30000
+
+server:
+  port: 8087
